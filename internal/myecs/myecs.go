@@ -14,6 +14,12 @@ var (
 	Drawable = Manager.NewComponent()
 	Animated = Manager.NewComponent()
 
+	Moving = Manager.NewComponent()
+	Coords = Manager.NewComponent()
+
+	Player  = Manager.NewComponent()
+	Occupy  = Manager.NewComponent()
+	Collect = Manager.NewComponent()
 
 	// Tags
 	IsObject   = ecs.BuildTag(Object)
@@ -22,6 +28,13 @@ var (
 	IsDrawable = ecs.BuildTag(Object, Drawable)
 	HasAnim    = ecs.BuildTag(Animated)
 	HasUpdate  = ecs.BuildTag(Update)
+
+	IsPlayer      = ecs.BuildTag(Object, Coords, Player)
+	HasCoords     = ecs.BuildTag(Object, Coords)
+	HasMovement   = ecs.BuildTag(Object, Coords, Moving)
+	IsCollectible = ecs.BuildTag(Object, Coords, Collect)
 )
 
 type ClearFlag bool
+
+type Has struct{}

@@ -1,0 +1,20 @@
+{
+  "img": "tiles.png",
+  "height": 32,
+  "width": 32,
+  "singleRow": true,
+  "sprites": [
+    {
+      "key": "water"
+    },
+    {
+      "key": "beach"
+    },
+    {
+      "key": "grass"
+    },
+    {
+      "key": "stone"
+    }
+  ]
+}

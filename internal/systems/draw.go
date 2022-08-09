@@ -27,9 +27,15 @@ func DrawSystem(win *pixelgl.Window) {
 			draw := result.Components[myecs.Drawable]
 			if spr, ok0 := draw.(*pixel.Sprite); ok0 {
 				spr.Draw(win, obj.Mat)
-			} else if sprH, ok1 := draw.(*img.Sprite); ok1 {
+			} else if sprH, okH := draw.(*img.Sprite); okH {
 				if batch, okB := img.Batchers[sprH.Batch]; okB {
 					batch.DrawSpriteColor(sprH.Key, obj.Mat, sprH.Color)
+				}
+			} else if sprA, okM := draw.([]*img.Sprite); okM {
+				for _, s := range sprA {
+					if batch, okB := img.Batchers[s.Batch]; okB {
+						batch.DrawSpriteColor(s.Key, obj.Mat, s.Color)
+					}
 				}
 			} else if anim, ok2 := draw.(*reanimator.Tree); ok2 {
 				if batch, okB := img.Batchers[anim.Batch]; okB {

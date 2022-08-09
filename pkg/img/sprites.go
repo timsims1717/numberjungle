@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/faiface/pixel"
 	"github.com/pkg/errors"
+	"golang.org/x/image/colornames"
 	"image/color"
 	"os"
 	"path/filepath"
@@ -95,9 +96,20 @@ func (b *Batcher) GetFrame(key string, index int) *pixel.Sprite {
 	return nil
 }
 
-func (b *Batcher) GetSprite(key string) *pixel.Sprite {
+func (b *Batcher) GetRawSprite(key string) *pixel.Sprite {
 	if s, ok := b.Sprites[key]; ok {
 		return s
+	}
+	return nil
+}
+
+func (b *Batcher) GetSprite(key string) *Sprite {
+	if _, ok := b.Sprites[key]; ok {
+		return &Sprite{
+			Key:   key,
+			Color: colornames.White,
+			Batch: b.Key,
+		}
 	}
 	return nil
 }

@@ -1,0 +1,11 @@
+{
+  "img": "pirate.png",
+  "height": 32,
+  "width": 32,
+  "singleRow": true,
+  "sprites": [
+    {
+      "key": "standing"
+    }
+  ]
+}

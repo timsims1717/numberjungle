@@ -2,6 +2,7 @@ package systems
 
 import (
 	"github.com/faiface/pixel"
+	"math"
 	"numberjungle/internal/myecs"
 	"numberjungle/pkg/object"
 )
@@ -38,8 +39,8 @@ func TransformSystem() {
 	for _, result := range myecs.Manager.Query(myecs.IsObject) {
 		if trans, ok := result.Components[myecs.Object].(*object.Object); ok {
 			trans.APos = trans.Pos.Add(trans.Offset)
-			//trans.APos.X = math.Round(trans.APos.X)
-			//trans.APos.Y = math.Round(trans.APos.Y)
+			trans.APos.X = math.Round(trans.APos.X)
+			trans.APos.Y = math.Round(trans.APos.Y)
 			trans.Mat = trans.Mat.ScaledXY(pixel.ZV, trans.Scalar)
 			trans.Mat = trans.Mat.Rotated(trans.RotArnd, trans.Rot)
 			if trans.Flip && trans.Flop {

@@ -7,6 +7,11 @@ const (
 	Release = 0
 	Version = 0
 	Build   = 20220729
+
+	Height = 12
+	Width  = 16
+
+	JungleBatch = "jungle-obj"
 )
 
 var (
