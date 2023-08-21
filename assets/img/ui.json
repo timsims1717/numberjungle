@@ -1,0 +1,64 @@
+{
+  "img": "ui.png",
+  "sprites": [
+    {
+      "key": "game_panel",
+      "w": 128,
+      "h": 416
+    },
+    {
+      "key": "editor_panel",
+      "w": 128,
+      "h": 416,
+      "x": 128
+    },
+    {
+      "key": "straight_map",
+      "w": 32,
+      "h": 16,
+      "y": 432
+    },
+    {
+      "key": "corner_map",
+      "w": 32,
+      "h": 32,
+      "y": 416,
+      "x": 32
+    },
+    {
+      "key": "editor_select",
+      "w": 38,
+      "h": 38,
+      "y": 416,
+      "x": 64
+    },
+    {
+      "key": "scroll_bar_bottom",
+      "w": 8,
+      "h": 16,
+      "y": 416,
+      "x": 102
+    },
+    {
+      "key": "scroll_bar_middle",
+      "w": 8,
+      "h": 16,
+      "y": 418,
+      "x": 102
+    },
+    {
+      "key": "scroll_bar_top",
+      "w": 8,
+      "h": 16,
+      "y": 432,
+      "x": 102
+    },
+    {
+      "key": "scroll_bar",
+      "w": 12,
+      "h": 28,
+      "y": 416,
+      "x": 110
+    }
+  ]
+}

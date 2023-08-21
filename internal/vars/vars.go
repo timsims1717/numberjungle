@@ -1,6 +1,8 @@
 package vars
 
-import "image/color"
+import (
+	"golang.org/x/image/colornames"
+)
 
 const (
 	Title   = "Number Jungle"
@@ -8,17 +10,17 @@ const (
 	Version = 0
 	Build   = 20220729
 
-	Height = 12
-	Width  = 16
+	RealHeight = 13
+	Height     = 12
+	Width      = 16
 
 	JungleBatch = "jungle-obj"
+
+	MaxExprWidth = 5
+	ExprYStart   = 242.
+	ExprXStart   = -32.
 )
 
 var (
-	BGColor = color.RGBA{
-		R: 0,
-		G: 0,
-		B: 255,
-		A: 255,
-	}
+	BGColor = colornames.Black
 )

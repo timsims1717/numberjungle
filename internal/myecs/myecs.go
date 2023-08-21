@@ -14,6 +14,8 @@ var (
 	Drawable = Manager.NewComponent()
 	Animated = Manager.NewComponent()
 
+	Clickable = Manager.NewComponent()
+
 	Moving = Manager.NewComponent()
 	Coords = Manager.NewComponent()
 
@@ -28,6 +30,7 @@ var (
 	IsDrawable = ecs.BuildTag(Object, Drawable)
 	HasAnim    = ecs.BuildTag(Animated)
 	HasUpdate  = ecs.BuildTag(Update)
+	IsClickable = ecs.BuildTag(Object, Clickable)
 
 	IsPlayer      = ecs.BuildTag(Object, Coords, Player)
 	HasCoords     = ecs.BuildTag(Object, Coords)

@@ -40,13 +40,25 @@ func MovementSystem() {
 			if !movement.Return && !LegalMove(tarCo) {
 				switch movement.Direction {
 				case data.Up:
-					moveBack = target.Y - threshold <= obj.Pos.Y
+					if target.Y - threshold <= obj.Pos.Y {
+						obj.Pos.Y = target.Y - threshold
+						moveBack = true
+					}
 				case data.Down:
-					moveBack = target.Y + threshold >= obj.Pos.Y
+					if target.Y + threshold >= obj.Pos.Y {
+						obj.Pos.Y = target.Y + threshold
+						moveBack = true
+					}
 				case data.Left:
-					moveBack = target.X + threshold >= obj.Pos.X
+					if target.X + threshold >= obj.Pos.X {
+						obj.Pos.X = target.X + threshold
+						moveBack = true
+					}
 				case data.Right:
-					moveBack = target.X - threshold <= obj.Pos.X
+					if target.X - threshold <= obj.Pos.X {
+						obj.Pos.X = target.X - threshold
+						moveBack = true
+					}
 				}
 			}
 			if moveBack {
@@ -100,7 +112,10 @@ func MovementSystem() {
 }
 
 func LegalMove(coords world.Coords) bool {
-	if coords.X < 0 || coords.Y < 0 || coords.X >= vars.Width || coords.Y >= vars.Height {
+	if coords.X < 0 || coords.Y < 0 || coords.X >= vars.Width || coords.Y >= vars.RealHeight {
+		return false
+	}
+	if coords == data.CurrPuzzle.End && !data.CurrPuzzle.Done {
 		return false
 	}
 	for _, result := range myecs.Manager.Query(myecs.HasCoords) {
